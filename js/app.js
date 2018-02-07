@@ -30,7 +30,7 @@ function movieAsked() {
 		// console.log(responseObject)
 		const movieTitle = responseObject.results
 		console.log(movieTitle)
-		const movieTriler = movieTitle[1]
+		const movieTriler = movieTitle[0]
 		// console.log(responseObject)
 		const id = movieTriler.id
 		const overview = movieTriler.overview
@@ -66,3 +66,5 @@ function showTrailer(id) {
 
 
 $(document).ready(getJson)
+
+//verifying collaborative git

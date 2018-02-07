@@ -51,4 +51,4 @@ En los siguientes alcances del desarrollo de la aplicación desarollaremos las s
 
 #CRONOGRAMA
 
-![Cronograma]("assets/images/cronograma.jpg")
+![Cronograma](assets/images/cronograma.png)
