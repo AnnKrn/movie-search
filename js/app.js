@@ -137,3 +137,7 @@ $("#log-out").click(function(e) {
 			// An error happened.
 		});
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/develop
