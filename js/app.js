@@ -17,6 +17,8 @@ function getJson() {
 	$input = $("#movie")
 	// var url = API_ENDPOINT + api_key + query + movie
 	// console.log(url)
+	$(".log-in").click(login);
+	$("#log-out").click(logout);
 }
 
 function movieAsked(e) {
@@ -65,7 +67,6 @@ function showTrailer(id) {
 
 $(document).ready(getJson)
 
-
 //verifying collaborative git
 
 // Initialize Firebase
@@ -79,32 +80,36 @@ $(document).ready(getJson)
   };
   firebase.initializeApp(config);
 
-	$("#log-in").click(function(e) {
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+	var login = function(e) {
 	e.preventDefault();
 
-	var provider = new firebase.auth.GoogleAuthProvider();
-
-	firebase
-		.auth()
+	firebase.auth()
 		.signInWithPopup(provider)
 		.then(function(result) {
-			// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-			var token = result.credential.accessToken;
-			// The signed-in user info.
-			var user = result.user;
-			// ...
+			console.log(result.user);
 			$(".collage").removeClass("show");
+			$(".collage").addClass("hide");
+			$(".log-out").removeClass("hide");
+			$(".log-out").addClass("show");
+			$(".section-input").removeClass("hide");
+			$(".section-input").addClass("show");
+			$(".log-in").removeClass("show");
 			$(".log-in").addClass("hide");
-			$(".profile-photo").attr("src", user.photoURL);
-			$(".username").text(user.displayName);
-			$(".username")
-				.parents("li")
-				.removeClass("hide");
-			$(".logout")
-				.parent()
-				.removeClass("hide");
-		})
-		.catch(function(error) {
+			$(".section-card").removeClass("hide");
+			$(".section-card").addClass("show");
+			//$(".profile-photo").attr("src", user.photoURL);
+			//$(".username").text(user.displayName);
+			//$(".username")
+				//.parents("li")
+				//.removeClass("hide");
+			//$("#log-out").addClass("show");
+
+				//.parent()
+				//.removeClass("hide");
+		});
+		/*.catch(function(error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
@@ -114,28 +119,30 @@ $(document).ready(getJson)
 			var credential = error.credential;
 			// ...
 			console.log("no funciona :(", error);
-		});
-});
+		});*/
+};
 
-$(".logout").click(function(e) {
+var logout = function(e) {
 	e.preventDefault();
 
-	firebase
-		.auth()
+	firebase.auth()
 		.signOut()
 		.then(function() {
 			// Sign-out successful.
+			$(".collage").removeClass("hide");
 			$(".collage").addClass("show");
-			$(".login").removeClass("show");
-			$(".username")
+			$("#log-in").removeClass("hide");
+			$("#log-in").addClass("show");
+			$("#log-out").removeClass("show");
+			$("#log-out").addClass("hide");
+			/*$(".username")
 				.parents("li")
 				.addClass("hide");
-			$(".logout")
+			$("#log-out")
 				.parent()
 				.addClass("hide");
 		})
 		.catch(function(error) {
-			// An error happened.
+			// An error happened.*/
 		});
-});
-
+};
