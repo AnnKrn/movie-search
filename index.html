@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trailer Book</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.min.js"></script>
@@ -21,12 +22,12 @@
               </div>
               <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a id="log-in" href="">Iniciar sesión</a></li>
-                <li><a id="log-out" href="">Cerrar sesión</a></li>
+                <li><a class="show" id="log-in" href="">Iniciar sesión</a></li>
+                <li><a class="hide" id="log-out" href="">Cerrar sesión</a></li>
               </ul>
               <ul class="side-nav" id="mobile-demo">
-                <li><a id="log-in" href="">Iniciar sesión</a></li>
-                <li><a id="log-out" href="">Cerrar sesión</a></li>
+                <li><a class="show" id="log-in" href="">Iniciar sesión</a></li>
+                <li><a class="hide" id="log-out" href="">Cerrar sesión</a></li>
               </ul>
             </div>
           </nav>
@@ -41,8 +42,8 @@
          <form class="col s12 ">
            <div class="row">
              <div class="input-field col s8 offset-s2">
-               <input id="icon_prefix" type="text" class="validate">
-               <label for="icon_prefix">Buscar Película</label>
+               <input id="movie" type="text" class="validate">
+               <label for="movie">Buscar Película</label>
                <button id="submit"><i class="material-icons prefix">search</i></button>
              </div>
            </div>
@@ -91,10 +92,13 @@
 
       </div>
     </div>
+<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
          crossorigin="anonymous"></script>
+=======
+>>>>>>> upstream/develop
   <script type="text/javascript" src="js/app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>

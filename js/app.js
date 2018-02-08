@@ -1,6 +1,5 @@
-var $button = $("#push")
 var API_ENDPOINT = "https://api.themoviedb.org/3/search/movie?"
-var api_key ="api_key=ad83002e6c7881556af5c5725f46194b"
+var api_key ="api_key=b1ee0f27a3fa4bc1700b668da7528499"
 var lang = "&language=es"
 var query = "&query="
 var $input
@@ -15,19 +14,20 @@ function getJson() {
   $('.modal').modal();
 	var $button = $("#submit")
 	$button.click(movieAsked)
-	$input = $("#icon_prefix")
+	$input = $("#movie")
 	// var url = API_ENDPOINT + api_key + query + movie
 	// console.log(url)
 }
 
-function movieAsked() {
+function movieAsked(e) {
+	e.preventDefault()
 	var url = API_ENDPOINT + api_key + lang + query + $input.val()
-	//console.log(url)
+	// console.log(url)
 	request
 	.get(url)
 	.then(function(response) {
 		const responseObject = response.body
-		// console.log(responseObject)
+		console.log(responseObject)
 		const movieTitle = responseObject.results
 		console.log(movieTitle)
 		const movieTriler = movieTitle[0]
@@ -37,7 +37,7 @@ function movieAsked() {
 		const name = movieTriler.original_title
 		const video = movieTriler
 		// document.write(name + ":" + overview + id)
-		$("#modal1").click(showTrailer(id))
+		showTrailer(id)
 	})
 	.catch(function() {
 		alert("Error")
@@ -56,13 +56,11 @@ function showTrailer(id) {
 		const movieTrailer = responseObject.results[0]
 		const keyTrailer = movieTrailer.key
 		// console.log(keyTrailer)
-		src="https://www.youtube.com/embed/QRPRkucfv-g"
 		var $trailerFrame = $("#trailer")
 		$trailerFrame.attr("src", "https://www.youtube.com/embed/"+ keyTrailer)
 	})
 
 }
-
 
 
 $(document).ready(getJson)
@@ -95,13 +93,13 @@ $(document).ready(getJson)
 			var user = result.user;
 			// ...
 			$(".collage").removeClass("show");
-			$(".log-in").addClass("hide");
+			$("#log-out").addClass("show");
 			$(".profile-photo").attr("src", user.photoURL);
 			$(".username").text(user.displayName);
 			$(".username")
 				.parents("li")
 				.removeClass("hide");
-			$(".logout")
+			$("#log-out")
 				.parent()
 				.removeClass("hide");
 		})
@@ -118,7 +116,7 @@ $(document).ready(getJson)
 		});
 });
 
-$(".logout").click(function(e) {
+$("#log-out").click(function(e) {
 	e.preventDefault();
 
 	firebase
@@ -127,11 +125,11 @@ $(".logout").click(function(e) {
 		.then(function() {
 			// Sign-out successful.
 			$(".collage").addClass("show");
-			$(".login").removeClass("show");
+			$("#log-in").removeClass("show");
 			$(".username")
 				.parents("li")
 				.addClass("hide");
-			$(".logout")
+			$("#log-out")
 				.parent()
 				.addClass("hide");
 		})
