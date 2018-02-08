@@ -60,7 +60,7 @@ function showTrailer(id) {
 		var $trailerFrame = $("#trailer")
 		$trailerFrame.attr("src", "https://www.youtube.com/embed/"+ keyTrailer)
 	})
-	
+
 }
 
 
@@ -68,3 +68,74 @@ function showTrailer(id) {
 $(document).ready(getJson)
 
 //verifying collaborative git
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAW2-YGoh4vI2pCrLWIY-B1WHQO9lhx9Uc",
+    authDomain: "trailerama-de97d.firebaseapp.com",
+    databaseURL: "https://trailerama-de97d.firebaseio.com",
+    projectId: "trailerama-de97d",
+    storageBucket: "",
+    messagingSenderId: "629971437449"
+  };
+  firebase.initializeApp(config);
+
+	$("#log-in").click(function(e) {
+	e.preventDefault();
+
+	var provider = new firebase.auth.GoogleAuthProvider();
+
+	firebase
+		.auth()
+		.signInWithPopup(provider)
+		.then(function(result) {
+			// This gives you a Facebook Access Token. You can use it to access the Facebook API.
+			var token = result.credential.accessToken;
+			// The signed-in user info.
+			var user = result.user;
+			// ...
+			$(".collage").removeClass("show");
+			$(".log-in").addClass("hide");
+			$(".profile-photo").attr("src", user.photoURL);
+			$(".username").text(user.displayName);
+			$(".username")
+				.parents("li")
+				.removeClass("hide");
+			$(".logout")
+				.parent()
+				.removeClass("hide");
+		})
+		.catch(function(error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// The email of the user's account used.
+			var email = error.email;
+			// The firebase.auth.AuthCredential type that was used.
+			var credential = error.credential;
+			// ...
+			console.log("no funciona :(", error);
+		});
+});
+
+$(".logout").click(function(e) {
+	e.preventDefault();
+
+	firebase
+		.auth()
+		.signOut()
+		.then(function() {
+			// Sign-out successful.
+			$(".collage").addClass("show");
+			$(".login").removeClass("show");
+			$(".username")
+				.parents("li")
+				.addClass("hide");
+			$(".logout")
+				.parent()
+				.addClass("hide");
+		})
+		.catch(function(error) {
+			// An error happened.
+		});
+});
