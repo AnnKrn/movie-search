@@ -14,12 +14,14 @@
   <body>
     <div class="contenedor"> <!--No use el container de Materialize por que solo da el 70% de la ventana -->
       <div class="row">
-        <div class="col s12">
+        <div class="col s12 border">
           <nav>
             <div class="nav-wrapper header1">
-              <div class="logo">
-                <a href="#!" class="brand-logo"><img id="logo" src="assets/images/cine-icon.png" alt=""> </a>
+              <div class="logo col s1">
+                <a href="#!" class="brand-logo left"><img id="logo" src="assets/images/cine-icon.png" alt=""> </a>
               </div>
+
+
               <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a class="show log-in" href="">Iniciar sesión</a></li>
@@ -28,11 +30,27 @@
               <ul class="side-nav" id="mobile-demo">
                 <li><a class="show log-in" href="">Iniciar sesión</a></li>
                 <li><a class="hide log-out" href="">Cerrar sesión</a></li>
+                <li><a class="hide log-out" href="">Trailers guardados</a></li>
+                <li><a class="hide log-out" href="">Mi agenda</a></li>
               </ul>
             </div>
           </nav>
         </div>
       </div>
+      <div class="row">
+        <div class="col s4 ">
+        <li id="profile-photo"class="hide">
+             <div class="chip col s6 push-s2">
+                 <img class="profile-photo" alt="Foto de perfil">
+                 <span class="username"></span>
+             </div>
+        </li>
+        </div>
+
+      </div>
+
+
+
       <div class="row">
         <div class="col s12 m12">
           <img class="show collage responsive-img" src="assets/images/collage.jpg" alt="collage">
