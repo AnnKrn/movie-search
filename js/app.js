@@ -113,6 +113,7 @@ $(document).ready(getJson)
 		.signInWithPopup(provider)
 		.then(function(result) {
 			console.log(result.user);
+			var user = result.user;
 			$(".collage").removeClass("show");
 			$(".collage").addClass("hide");
 			$(".log-out").removeClass("hide");
@@ -124,6 +125,17 @@ $(document).ready(getJson)
 			$(".section-card").removeClass("hide");
 			$(".section-card").addClass("show");
 
+			$(".profile-photo").attr("src", user.photoURL);
+			console.log(user.photoURL)
+			$(".username").text(user.displayName);
+			console.log(user.displayName)
+			$(".username")
+				.parents("li")
+				.removeClass("hide");
+			$(".log-out").addClass("show");
+
+				//.parent()
+				//.removeClass("hide");
 		});
 
 };

@@ -2,6 +2,30 @@
   background-color: black;
 }
 
+.name-user {
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.photo {
+  vertical-align: middle;
+}
+
+.border {
+  box-sizing: border-box;
+}
+
+#profile-photo {
+  width: 80vh;
+  margin: 0;
+  padding: 0;
+}
+
+#photo-user {
+  width: 8vh;
+}
+
 #logo {
   width: 8vh;
 }
