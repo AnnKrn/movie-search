@@ -1,19 +1,5 @@
-.header1 {
-  background-color: black;
-}
-
-.name-user {
-  color: white;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.photo {
-  vertical-align: middle;
-}
-
-.border {
-  box-sizing: border-box;
+* {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #profile-photo {
@@ -27,7 +13,7 @@
 }
 
 #logo {
-  width: 8vh;
+  width: 60%;
 }
 
 #watch {
@@ -49,7 +35,36 @@
   margin-top: 3vh;
 }
 
+.header1 {
+  background-color: black;
+}
+
+.name-user {
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.photo {
+  vertical-align: middle;
+}
+
+.border {
+  box-sizing: border-box;
+}
+
 .collage {
+  background-image: url("../assets/images/collage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100vh;
+}
+
+.collage > h1 {
+  margin: 0px;
+  text-align: center;
+  font-size: 10vh;
+  background-color: white;
+  opacity: 0.6;
 }
