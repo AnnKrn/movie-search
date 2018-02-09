@@ -35,27 +35,27 @@
       <div class="row">
          <form class="col s12 ">
            <div class="row">
-             <div class="input-field col s8 offset-s2">
+             <div class="input-field col s6 offset-s2">
                <input id="icon_prefix" type="text" class="validate">
                <label for="icon_prefix">Buscar Película</label>
-               <button id="submit"><i class="material-icons prefix">search</i></button>
-             </div>
+              </div>
+              <button id="submit" class="btn waves-effect waves-light col s2" type="submit"> <i class="material-icons center">search</i></button>
            </div>
          </form>
        </div>
        <div class="row">
          <div class="col s12 m7">
-          <h2 class="header">Coco</h2>
+          <h2 class="header movie_title">Coco</h2>
           <div class="card horizontal">
             <div class="card-image">
-              <img src="assets/images/coco-cartel-pic32-b.jpg">
+              <img id="movie_image" src="assets/images/coco-cartel-pic32-b.jpg">
            </div>
            <div class="card-stacked">
              <div class="card-content">
-               <p>Título: Coco</p>
-               <p>Categoría: Animación</p>
-               <p>Raiting:</p>
-               <p>Sinopsis: En un pequeño y alegre pueblo mexicano vive Miguel, un niño de 12 años.</p>
+               <p>Título:<p class="movie_title" >Coco</p></p> 
+               <p>Fecha de estreno:<p id="premier" ></p></p>
+               <p>Raiting: <p id="rating" ></p></p> 
+               <p>Sinopsis:<p id="sinopsis" >En un pequeño y alegre pueblo mexicano vive Miguel, un niño de 12 años.</p></p> 
              </div>
              <div class="card-action">
                <!-- Modal Trigger -->
