@@ -124,6 +124,7 @@ $(document).ready(getJson)
 			$(".log-in").addClass("hide");
 			$(".section-card").removeClass("hide");
 			$(".section-card").addClass("show");
+
 			$(".profile-photo").attr("src", user.photoURL);
 			console.log(user.photoURL)
 			$(".username").text(user.displayName);
@@ -136,17 +137,7 @@ $(document).ready(getJson)
 				//.parent()
 				//.removeClass("hide");
 		});
-		/*.catch(function(error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// The email of the user's account used.
-			var email = error.email;
-			// The firebase.auth.AuthCredential type that was used.
-			var credential = error.credential;
-			// ...
-			console.log("no funciona :(", error);
-		});*/
+
 };
 
 var logout = function(e) {
@@ -158,18 +149,10 @@ var logout = function(e) {
 			// Sign-out successful.
 			$(".collage").removeClass("hide");
 			$(".collage").addClass("show");
-			$("#log-in").removeClass("hide");
-			$("#log-in").addClass("show");
-			$("#log-out").removeClass("show");
-			$("#log-out").addClass("hide");
-			/*$(".username")
-				.parents("li")
-				.addClass("hide");
-			$("#log-out")
-				.parent()
-				.addClass("hide");
-		})
-		.catch(function(error) {
-			// An error happened.*/
+			$(".log-in").removeClass("hide");
+			$(".log-in").addClass("show");
+			$(".log-out").removeClass("show");
+			$(".log-out").addClass("hide");
+
 		});
 };
